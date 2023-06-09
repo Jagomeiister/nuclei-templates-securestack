@@ -1,5 +1,4 @@
 id: monstra-installer
-
 info:
   name: Monstra Installation Exposure
   author: ritikchaddha
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: 'title:"Monstra :: Install"'
   tags: misconfig,monstra,install
-
+  description: Monstra Installation Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Monstra :: Install"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - 'Monstra :: Install'
+  - type: status
+    status:
+    - 200

@@ -1,5 +1,4 @@
 id: misconfigured-concrete5
-
 info:
   name: Misconfigured Concrete5
   author: pdteam
@@ -7,16 +6,15 @@ info:
   tags: misconfig,concrete,cms
   metadata:
     max-request: 1
-
+  description: Misconfigured Concrete5 detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    host-redirects: true
-    max-redirects: 2
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'concrete5 has encountered an issue'
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  host-redirects: true
+  max-redirects: 2
+  matchers:
+  - type: word
+    part: body
+    words:
+    - concrete5 has encountered an issue

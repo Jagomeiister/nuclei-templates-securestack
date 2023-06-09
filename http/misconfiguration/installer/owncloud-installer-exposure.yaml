@@ -1,5 +1,4 @@
 id: owncloud-installer-exposure
-
 info:
   name: OwnCloud Installer Exposure
   author: DhiyaneshDk
@@ -9,28 +8,25 @@ info:
     verified: true
     shodan-query: title:"owncloud"
   tags: misconfig,owncloud,exposure,install
-
+  description: OwnCloud Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-      - '{{BaseURL}}/owncloud/'
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<legend>Create an <strong>admin account</strong>"
-          - "ownCloud"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/owncloud/'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <legend>Create an <strong>admin account</strong>
+    - ownCloud
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

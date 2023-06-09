@@ -1,5 +1,4 @@
 id: ntop-panel-exposed
-
 info:
   name: ntop Network Traffix Exposed
   author: tess
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"Configure ntop"
   tags: misconfig,ntop,exposure
-
+  description: ntop Network Traffix Exposed detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Configure ntop"
-          - "directory is properly installed"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Configure ntop
+    - directory is properly installed
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

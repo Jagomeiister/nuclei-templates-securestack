@@ -1,5 +1,4 @@
 id: smf-installer
-
 info:
   name: SMF Installer
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"SMF Installer"
   tags: misconfig,smf,install,exposure
-
+  description: SMF Installer detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'SMF Installer'
-          - 'Progress'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - SMF Installer
+    - Progress
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

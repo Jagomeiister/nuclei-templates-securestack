@@ -1,5 +1,4 @@
 id: lucee-stack-trace
-
 info:
   name: Lucee Stack Trace Error
   author: dhiyaneshDK
@@ -8,20 +7,18 @@ info:
     max-request: 1
     shodan-query: http.title:"Lucee"
   tags: lucee,exposure
-
+  description: Lucee Stack Trace Error detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'lucee.runtime'
-
-      - type: status
-        status:
-          - 500
-          - 200
-        condition: or
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - lucee.runtime
+  - type: status
+    status:
+    - 500
+    - 200
+    condition: or

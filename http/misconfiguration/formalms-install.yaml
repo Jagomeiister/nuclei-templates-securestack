@@ -1,5 +1,4 @@
 id: formalms-install
-
 info:
   name: Formalms Exposed Installation
   author: princechaddha
@@ -7,21 +6,19 @@ info:
   tags: misconfig,formalms
   metadata:
     max-request: 1
-
+  description: Formalms Exposed Installation detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>forma.lms installer</title>'
-          - '<h1>forma.lms - Installation</h1>'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>forma.lms installer</title>
+    - <h1>forma.lms - Installation</h1>
+    condition: and
+  - type: status
+    status:
+    - 200

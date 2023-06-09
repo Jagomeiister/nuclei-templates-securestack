@@ -1,28 +1,25 @@
 id: smartjob-takeover
-
 info:
   name: Smartjob Takeover Detection
   author: pdteam
   severity: high
   reference:
-    - https://github.com/EdOverflow/can-i-take-over-xyz/issues/139
+  - https://github.com/EdOverflow/can-i-take-over-xyz/issues/139
   tags: takeover
   metadata:
     max-request: 1
-
+  description: Smartjob Takeover Detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        words:
-          - Job Board Is Unavailable
-          - This job board website is either expired
-          - This job board website is either expired or its domain name is invalid.
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: dsl
+    dsl:
+    - Host != ip
+  - type: word
+    words:
+    - Job Board Is Unavailable
+    - This job board website is either expired
+    - This job board website is either expired or its domain name is invalid.

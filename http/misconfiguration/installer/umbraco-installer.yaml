@@ -1,5 +1,4 @@
 id: umbraco-installer
-
 info:
   name: Umbraco Install Exposure
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"Install Umbraco"
   tags: misconfig,umbraco,install,oss
-
+  description: Umbraco Install Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Install Umbraco'
-          - 'umbracoInstallPageBody'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Install Umbraco
+    - umbracoInstallPageBody
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

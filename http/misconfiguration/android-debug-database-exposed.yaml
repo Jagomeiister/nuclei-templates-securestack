@@ -1,5 +1,4 @@
 id: android-debug-database-exposed
-
 info:
   name: Android Debug Manager
   author: dhiyaneshDK
@@ -8,18 +7,16 @@ info:
     max-request: 1
     shodan-query: http.title:"Android Debug Database"
   tags: unauth,android
-
+  description: Android Debug Manager detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Android Debug Database</title>'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - <title>Android Debug Database</title>
+  - type: status
+    status:
+    - 200

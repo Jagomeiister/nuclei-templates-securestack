@@ -1,5 +1,4 @@
 id: unauth-axyom-network-manager
-
 info:
   name: Unauthenticated Axyom Network Manager
   author: pussycat0x
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: http.title:"Axyom Network Manager"
   tags: misconfig,axyom,exposure,unauth
-
+  description: Unauthenticated Axyom Network Manager detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/home"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Axyom Network Manager'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/home'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Axyom Network Manager
+  - type: status
+    status:
+    - 200

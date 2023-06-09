@@ -1,33 +1,29 @@
 id: envoy-admin-exposure
-
 info:
   name: Envoy Admin Exposure
   author: DhiyaneshDk
   severity: medium
   reference:
-    - https://www.envoyproxy.io/docs/envoy/latest/
+  - https://www.envoyproxy.io/docs/envoy/latest/
   metadata:
     max-request: 1
     verified: true
     shodan-query: title:"Envoy Admin"
   tags: misconfig,envoy,exposure
-
+  description: Envoy Admin Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>Envoy Admin</title>"
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - <title>Envoy Admin</title>
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

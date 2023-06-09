@@ -1,5 +1,4 @@
 id: hp-device-info-detect
-
 info:
   name: HP Device Info Detection
   author: pussycat0x
@@ -8,19 +7,18 @@ info:
   tags: iot,hp
   metadata:
     max-request: 1
-
+  description: HP Device Info Detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/hp/device/DeviceInformation/View"
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Device Information"
-          - "hp"
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/hp/device/DeviceInformation/View'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - Device Information
+    - hp
+    condition: and
+  - type: status
+    status:
+    - 200

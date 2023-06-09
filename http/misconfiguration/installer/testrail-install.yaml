@@ -1,5 +1,4 @@
 id: testrail-install
-
 info:
   name: TestRail Installation Wizard
   author: DhiyaneshDk
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: title:"TestRail Installation Wizard"
   tags: misconfig,testrail,install,exposure
-
+  description: TestRail Installation Wizard detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php?/installer"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "TestRail Installation Wizard"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/index.php?/installer'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - TestRail Installation Wizard
+  - type: status
+    status:
+    - 200

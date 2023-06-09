@@ -1,5 +1,4 @@
 id: django-debug
-
 info:
   name: Django Debug Method Enabled
   author: dhiyaneshDK,hackergautam
@@ -7,21 +6,19 @@ info:
   tags: django,debug
   metadata:
     max-request: 1
-
+  description: Django Debug Method Enabled detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/NON_EXISTING_PATH/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - URLconf defined
-          - Page not found
-          - Django tried these URL patterns, in this order
-        condition: and
-
-      - type: status
-        status:
-          - 404
+- method: GET
+  path:
+  - '{{BaseURL}}/NON_EXISTING_PATH/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - URLconf defined
+    - Page not found
+    - Django tried these URL patterns, in this order
+    condition: and
+  - type: status
+    status:
+    - 404

@@ -1,5 +1,4 @@
 id: docker-cloud
-
 info:
   name: Docker Cloud Yaml - File Disclosure
   author: DhiyaneshDK
@@ -10,29 +9,25 @@ info:
     verified: true
     google-query: intitle:"index of" "docker-cloud.yml"
   tags: exposure,cloud,devops,docker,files
-
+  description: Docker Cloud Yaml - File Disclosure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/docker-cloud.yml"
-
-    matchers-condition: and
-    matchers:
-
-      - type: regex
-        regex:
-          - '(?m)^  image:'
-          - '(?m)^  ports:'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-          - "text/html"
-        negative: true
-        condition: or
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/docker-cloud.yml'
+  matchers-condition: and
+  matchers:
+  - type: regex
+    regex:
+    - '(?m)^  image:'
+    - '(?m)^  ports:'
+    condition: and
+  - type: word
+    part: header
+    words:
+    - application/json
+    - text/html
+    negative: true
+    condition: or
+  - type: status
+    status:
+    - 200

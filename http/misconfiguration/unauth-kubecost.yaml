@@ -9,23 +9,20 @@ info:
     verified: true
     shodan-query: title:kubecost
   tags: misconfig,exposure,unauth,kubecost
-
+  description: KubeCost - Unauthenticated Dashboard Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/overview.html'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Cluster Overview | Kubecost</title>'
-
-      - type: word
-        part: header
-        words:
-          - text/html
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/overview.html'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - <title>Cluster Overview | Kubecost</title>
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

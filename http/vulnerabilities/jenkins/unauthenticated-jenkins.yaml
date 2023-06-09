@@ -1,5 +1,4 @@
 id: unauthenticated-jenkins
-
 info:
   name: Unauthenticated Jenkins Dashboard
   author: dhiyaneshDK
@@ -7,19 +6,17 @@ info:
   tags: jenkins
   metadata:
     max-request: 1
-
+  description: Unauthenticated Jenkins Dashboard detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - Dashboard [Jenkins]
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - Dashboard [Jenkins]
+    condition: and
+  - type: status
+    status:
+    - 200

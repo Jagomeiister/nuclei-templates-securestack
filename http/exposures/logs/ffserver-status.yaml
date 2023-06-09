@@ -1,5 +1,4 @@
 id: ffserver-status
-
 info:
   name: FFserver Status Detect
   author: notnotnotveg,tess
@@ -9,22 +8,20 @@ info:
     verified: true
     shodan-query: title:"ffserver Status"
   tags: exposures,logs,ffserver
-
+  description: FFserver Status Detect detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "ffserver Status"
-          - "Available Streams"
-          - "Connection Status"
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - ffserver Status
+    - Available Streams
+    - Connection Status
+    condition: and
+  - type: status
+    status:
+    - 200

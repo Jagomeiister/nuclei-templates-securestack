@@ -1,5 +1,4 @@
 id: lmszai-installer
-
 info:
   name: LMSZAI Installer Exposure
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: html:"LMSZAI - Learning Management System"
   tags: misconfig,blesta,install,exposure
-
+  description: LMSZAI Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'LMSZAI - Learning Management System'
-          - 'Configuaration'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - LMSZAI - Learning Management System
+    - Configuaration
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

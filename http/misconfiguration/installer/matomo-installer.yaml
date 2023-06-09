@@ -1,5 +1,4 @@
 id: matomo-installer
-
 info:
   name: Matomo Installer Exposure
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"Matomo"
   tags: misconfig,matomo,install
-
+  description: Matomo Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Matomo"
-          - "Installation status"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Matomo
+    - Installation status
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

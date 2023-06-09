@@ -1,16 +1,14 @@
 id: github-app-token
-
 info:
   name: Github App Token
   author: tanq16,DhiyaneshDK
   severity: medium
   tags: token,file,github
-
+  description: Github App Token detected
 file:
-  - extensions:
-      - all
-
-    extractors:
-      - type: regex
-        regex:
-          - "\b((?:ghu|ghs)_[a-zA-Z0-9]{36})\b"
+- extensions:
+  - all
+  extractors:
+  - type: regex
+    regex:
+    - "\b((?:ghu|ghs)_[a-zA-Z0-9]{36})\b"

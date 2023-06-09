@@ -1,5 +1,4 @@
 id: drupal-install
-
 info:
   name: Drupal Install
   author: NkxxkN
@@ -8,15 +7,14 @@ info:
     max-request: 1
     shodan-query: http.component:"drupal"
   tags: exposure,drupal
-
+  description: Drupal Install detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/install.php?profile=default"
-
-    host-redirects: true
-    max-redirects: 1
-    matchers:
-      - type: word
-        words:
-          - "<title>Choose language | Drupal</title>"
+- method: GET
+  path:
+  - '{{BaseURL}}/install.php?profile=default'
+  host-redirects: true
+  max-redirects: 1
+  matchers:
+  - type: word
+    words:
+    - <title>Choose language | Drupal</title>

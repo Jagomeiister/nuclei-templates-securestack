@@ -1,5 +1,4 @@
 id: permissions-installer
-
 info:
   name: Permissions  Installer Exposure
   author: pussycat0x
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: title:" Permissions | Installer"
   tags: misconfig,permissions,install,exposure
-
+  description: Permissions  Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title> Permissions | Installer'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title> Permissions | Installer
+  - type: status
+    status:
+    - 200

@@ -1,26 +1,23 @@
 id: mashery-takeover
-
 info:
   name: mashery takeover detection
   author: pdteam
   severity: high
   reference:
-    - https://github.com/EdOverflow/can-i-take-over-xyz/issues/14
+  - https://github.com/EdOverflow/can-i-take-over-xyz/issues/14
   tags: takeover
   metadata:
     max-request: 1
-
+  description: mashery takeover detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        words:
-          - Unrecognized domain <strong>
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: dsl
+    dsl:
+    - Host != ip
+  - type: word
+    words:
+    - Unrecognized domain <strong>

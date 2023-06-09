@@ -1,16 +1,14 @@
 id: shopify-access-token
-
 info:
   name: Shopify Access Token
   author: gaurang
   severity: high
   tags: token,file
-
+  description: Shopify Access Token detected
 file:
-  - extensions:
-      - all
-
-    extractors:
-      - type: regex
-        regex:
-          - "shpat_[a-fA-F0-9]{32}"
+- extensions:
+  - all
+  extractors:
+  - type: regex
+    regex:
+    - shpat_[a-fA-F0-9]{32}

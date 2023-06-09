@@ -1,5 +1,4 @@
 id: dokuwiki-installer
-
 info:
   name: DokuWiki Install Exposure
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"DokuWiki"
   tags: misconfig,dokuwiki,install,exposure
-
+  description: DokuWiki Install Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/install.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "DokuWiki Installer"
-          - "Superuser"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - DokuWiki Installer
+    - Superuser
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

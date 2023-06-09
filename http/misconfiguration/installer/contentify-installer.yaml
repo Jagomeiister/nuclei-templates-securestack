@@ -1,5 +1,4 @@
 id: contentify-installer
-
 info:
   name: Contentify Installer Exposure
   author: ritikchaddha
@@ -8,21 +7,19 @@ info:
     max-request: 1
     verified: true
   tags: misconfig,contentify,install,exposure
-
+  description: Contentify Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Contentify - Step 1'
-          - 'start the installation'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Contentify - Step 1
+    - start the installation
+    condition: and
+  - type: status
+    status:
+    - 200

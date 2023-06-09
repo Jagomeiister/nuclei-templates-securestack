@@ -1,5 +1,4 @@
 id: apache-licenserc
-
 info:
   name: Apache License File
   author: DhiyaneshDk
@@ -8,22 +7,20 @@ info:
     max-request: 1
     verified: true
   tags: exposure,file,apache
-
+  description: Apache License File detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/.licenserc.yaml'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'header:'
-          - 'license:'
-          - 'copyright-owner:'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/.licenserc.yaml'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - 'header:'
+    - 'license:'
+    - 'copyright-owner:'
+    condition: and
+  - type: status
+    status:
+    - 200

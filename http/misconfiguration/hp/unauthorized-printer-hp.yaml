@@ -1,5 +1,4 @@
 id: unauthorized-printer-hp
-
 info:
   name: Unauthorized HP office pro printer
   author: pussycat0x,r3naissance
@@ -8,19 +7,17 @@ info:
     max-request: 2
     shodan-query: http.title:"Hp Officejet pro"
   tags: hp,iot,unauth
-
+  description: Unauthorized HP office pro printer detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/hp/device/webAccess/index.htm?content=security"
-
-    matchers-condition: and
-    matchers:
-      - type: regex
-        regex:
-          - '<title>(HP Officejet Pro([ 0-9A-Za-z]+)|HP Designjet([ 0-9A-Za-z]+).*)<\/title>'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/hp/device/webAccess/index.htm?content=security'
+  matchers-condition: and
+  matchers:
+  - type: regex
+    regex:
+    - <title>(HP Officejet Pro([ 0-9A-Za-z]+)|HP Designjet([ 0-9A-Za-z]+).*)<\/title>
+  - type: status
+    status:
+    - 200

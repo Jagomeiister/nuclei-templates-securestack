@@ -1,5 +1,4 @@
 id: qvidium-management-system-exposed
-
 info:
   name: QVidium Management System Exposed
   author: tess
@@ -9,28 +8,25 @@ info:
     verified: true
     shodan-query: html:"QVidium Management"
   tags: misconfig,qvidium
-
+  description: QVidium Management System Exposed detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    host-redirects: true
-    max-redirects: 2
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'QVidium Management'
-          - 'src="/cgi-bin/banner.cgi'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  host-redirects: true
+  max-redirects: 2
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - QVidium Management
+    - src="/cgi-bin/banner.cgi
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

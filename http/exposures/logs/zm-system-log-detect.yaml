@@ -1,5 +1,4 @@
 id: zm-system-log-detect
-
 info:
   name: zm-system-log-detect
   author: pussycat0x
@@ -8,20 +7,18 @@ info:
   tags: logs,zm,exposure
   metadata:
     max-request: 2
-
+  description: zm-system-log-detect detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/?view=log"
-      - "{{BaseURL}}/zm/?view=log"
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>ZM - System Log</title>"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/?view=log'
+  - '{{BaseURL}}/zm/?view=log'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - <title>ZM - System Log</title>
+  - type: status
+    status:
+    - 200

@@ -1,5 +1,4 @@
 id: impresspages-installer
-
 info:
   name: ImpressPages Installer
   author: pussycat0x
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: http.title:"ImpressPages installation wizard"
   tags: misconfig,exposure,install,impresspages
-
+  description: ImpressPages Installer detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "ImpressPages installation wizard"
-          - "Configuration"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - ImpressPages installation wizard
+    - Configuration
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

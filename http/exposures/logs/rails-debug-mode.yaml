@@ -1,5 +1,4 @@
 id: rails-debug-mode
-
 info:
   name: Rails Debug Mode
   author: pdteam
@@ -7,16 +6,15 @@ info:
   tags: debug,rails,exposure
   metadata:
     max-request: 1
-
+  description: Rails Debug Mode detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/{{randstr}}"
-
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Rails.root:"
-          - "Action Controller: Exception caught"
-        condition: and
+- method: GET
+  path:
+  - '{{BaseURL}}/{{randstr}}'
+  matchers:
+  - type: word
+    part: body
+    words:
+    - 'Rails.root:'
+    - 'Action Controller: Exception caught'
+    condition: and

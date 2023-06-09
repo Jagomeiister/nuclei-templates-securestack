@@ -1,5 +1,4 @@
 id: suitecrm-installer
-
 info:
   name: SuiteCRM Installer Exposure
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"SuiteCRM"
   tags: misconfig,suitecrm,install
-
+  description: SuiteCRM Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "SuiteCRM Setup Wizard:"
-          - "Checking Environment"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - 'SuiteCRM Setup Wizard:'
+    - Checking Environment
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

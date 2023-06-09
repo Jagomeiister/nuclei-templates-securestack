@@ -1,16 +1,14 @@
 id: improper-certificate-validation
-
 info:
   name: Improper Certificate Validation
   author: gaurang
   severity: medium
   tags: android,file
-
+  description: Improper Certificate Validation detected
 file:
-  - extensions:
-      - all
-
-    matchers:
-      - type: word
-        words:
-          - "Landroid/webkit/SslErrorHandler;->proceed()V"
+- extensions:
+  - all
+  matchers:
+  - type: word
+    words:
+    - Landroid/webkit/SslErrorHandler;->proceed()V

@@ -1,5 +1,4 @@
 id: prometheus-log
-
 info:
   name: Exposed Prometheus
   author: dhiyaneshDK
@@ -7,21 +6,19 @@ info:
   tags: prometheus
   metadata:
     max-request: 2
-
+  description: Exposed Prometheus detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/prometheus"
-      - "{{BaseURL}}/actuator/prometheus"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'gateway_request_total'
-          - 'logback_events_total'
-        condition: or
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/prometheus'
+  - '{{BaseURL}}/actuator/prometheus'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - gateway_request_total
+    - logback_events_total
+    condition: or
+  - type: status
+    status:
+    - 200

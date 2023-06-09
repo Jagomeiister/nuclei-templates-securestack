@@ -1,5 +1,4 @@
 id: libvirt-exporter-metrics
-
 info:
   name: Libvirt Exporter Metrics
   author: DhiyaneshDk
@@ -9,21 +8,19 @@ info:
     verified: true
     shodan-query: title:"Libvirt"
   tags: libvirt,exposure,debug
-
+  description: Libvirt Exporter Metrics detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/metrics"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "# HELP"
-          - "libvirt_"
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/metrics'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - '# HELP'
+    - libvirt_
+    condition: and
+  - type: status
+    status:
+    - 200

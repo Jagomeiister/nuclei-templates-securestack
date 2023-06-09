@@ -1,5 +1,4 @@
 id: apache-hbase-unauth
-
 info:
   name: Apache Hbase Unauth
   author: pikpikcu
@@ -7,20 +6,17 @@ info:
   tags: apache,unauth,misconfig
   metadata:
     max-request: 1
-
+  description: Apache Hbase Unauth detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/conf'
-
-    matchers-condition: and
-    matchers:
-
-      - type: word
-        words:
-          - '<name>hbase.defaults.for.version</name>'
-          - '<source>hbase-default.xml</source>'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/conf'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - <name>hbase.defaults.for.version</name>
+    - <source>hbase-default.xml</source>
+  - type: status
+    status:
+    - 200

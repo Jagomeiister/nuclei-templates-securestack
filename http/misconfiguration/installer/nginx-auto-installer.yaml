@@ -1,5 +1,4 @@
 id: nginx-auto-installer
-
 info:
   name: NginX Auto Installer Exposure
   author: pussycat0x
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: title:"NginX Auto Installer"
   tags: misconfig,nginx,install,exposure
-
+  description: NginX Auto Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'NginX Auto Installer'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - NginX Auto Installer
+  - type: status
+    status:
+    - 200

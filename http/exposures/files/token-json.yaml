@@ -1,5 +1,4 @@
 id: token-json
-
 info:
   name: Token Json File Disclosure
   author: DhiyaneshDK
@@ -9,22 +8,20 @@ info:
     verified: true
     google-query: intitle:"index of" "token.json"
   tags: exposure,cloud,google,devops,files
-
+  description: Token Json File Disclosure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/token.json"
-      - "{{BaseURL}}/search/token.json"
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"access_token":'
-          - '"token_type":'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/token.json'
+  - '{{BaseURL}}/search/token.json'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - '"access_token":'
+    - '"token_type":'
+    condition: and
+  - type: status
+    status:
+    - 200

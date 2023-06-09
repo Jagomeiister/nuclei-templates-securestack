@@ -1,5 +1,4 @@
 id: composer-auth-json
-
 info:
   name: Composer-auth Json File Disclosure
   author: DhiyaneshDK
@@ -10,22 +9,20 @@ info:
     verified: true
     google-query: intext:"index of /" ".composer-auth.json"
   tags: exposure,devops,files
-
+  description: Composer-auth Json File Disclosure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.composer-auth.json"
-      - "{{BaseURL}}/vendor/webmozart/assert/.composer-auth.json"
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'github-oauth'
-          - 'github.com'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/.composer-auth.json'
+  - '{{BaseURL}}/vendor/webmozart/assert/.composer-auth.json'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - github-oauth
+    - github.com
+    condition: and
+  - type: status
+    status:
+    - 200

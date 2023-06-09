@@ -1,31 +1,27 @@
 id: ghost-takeover
-
 info:
   name: ghost takeover detection
   author: pdteam
   severity: high
   reference:
-    - https://github.com/EdOverflow/can-i-take-over-xyz/issues/89
+  - https://github.com/EdOverflow/can-i-take-over-xyz/issues/89
   tags: takeover,ghost
   metadata:
     max-request: 1
-
+  description: ghost takeover detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        part: header
-        words:
-          - 'offline.ghost.org'
-
-      - type: status
-        status:
-          - 302
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: dsl
+    dsl:
+    - Host != ip
+  - type: word
+    part: header
+    words:
+    - offline.ghost.org
+  - type: status
+    status:
+    - 302

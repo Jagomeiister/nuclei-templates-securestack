@@ -1,5 +1,4 @@
 id: cloud-config
-
 info:
   name: Cloud Config File Exposure
   author: DhiyaneshDK,Hardik-Solanki
@@ -10,23 +9,21 @@ info:
     verified: true
     shodan-query: html:"cloud-config.yml"
   tags: exposure,cloud,devops,files
-
+  description: Cloud Config File Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cloud-config.yml"
-      - "{{BaseURL}}/core-cloud-config.yml"
-      - '{{BaseURL}}/cloud-config.txt'
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'ssh_authorized_keys'
-          - '#cloud-config'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/cloud-config.yml'
+  - '{{BaseURL}}/core-cloud-config.yml'
+  - '{{BaseURL}}/cloud-config.txt'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - ssh_authorized_keys
+    - '#cloud-config'
+    condition: and
+  - type: status
+    status:
+    - 200

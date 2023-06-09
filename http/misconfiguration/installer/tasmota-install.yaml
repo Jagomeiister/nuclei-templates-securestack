@@ -1,5 +1,4 @@
 id: tasmota-install
-
 info:
   name: Tasmota Installer Exposure
   author: ritikchaddha
@@ -9,21 +8,19 @@ info:
     verified: true
     shodan-query: title:"Tasmota"
   tags: misconfig,tasmota,install,exposure
-
+  description: Tasmota Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/install/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Install Tasmota"
-          - "Tasmota Installer"
-        condition: or
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Install Tasmota
+    - Tasmota Installer
+    condition: or
+  - type: status
+    status:
+    - 200

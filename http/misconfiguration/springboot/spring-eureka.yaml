@@ -1,5 +1,4 @@
 id: spring-eureka
-
 info:
   name: Spring Eureka Exposure
   author: tess
@@ -9,22 +8,20 @@ info:
     verified: true
     shodan-query: title:"Eureka"
   tags: misconfig,springboot,exposure,eureka
-
+  description: Spring Eureka Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Eureka'
-          - 'Toggle navigation'
-          - 'Last 1000 since startup'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Eureka
+    - Toggle navigation
+    - Last 1000 since startup
+    condition: and
+  - type: status
+    status:
+    - 200

@@ -1,5 +1,4 @@
 id: wordpress-db-backup-listing
-
 info:
   name: WordPress DB Backup
   author: Suman_Kar
@@ -7,22 +6,20 @@ info:
   tags: wordpress,backup
   metadata:
     max-request: 1
-
+  description: WordPress DB Backup detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/uploads/database-backups/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Index of /"
-          - "wp-content/uploads/database-backups"
-          - ".sql"
-        condition: and
-        part: body
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/wp-content/uploads/database-backups/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - Index of /
+    - wp-content/uploads/database-backups
+    - .sql
+    condition: and
+    part: body
+  - type: status
+    status:
+    - 200

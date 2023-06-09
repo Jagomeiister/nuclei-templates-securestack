@@ -1,20 +1,18 @@
 id: stackhawk-api-key
-
 info:
   name: StackHawk API Key
   author: hazana
   severity: medium
   reference:
-    - https://docs.stackhawk.com/apidocs.html
+  - https://docs.stackhawk.com/apidocs.html
   metadata:
-    verified: "true"
+    verified: 'true'
   tags: token,file
-
+  description: StackHawk API Key detected
 file:
-  - extensions:
-      - all
-
-    extractors:
-      - type: regex
-        regex:
-          - "hawk\\.[0-9A-Za-z\\-_]{20}\\.[0-9A-Za-z\\-_]{20}"
+- extensions:
+  - all
+  extractors:
+  - type: regex
+    regex:
+    - hawk\.[0-9A-Za-z\-_]{20}\.[0-9A-Za-z\-_]{20}

@@ -1,5 +1,4 @@
 id: druid-monitor
-
 info:
   name: Druid Monitor Unauthorized Access
   author: ohlinge
@@ -7,18 +6,16 @@ info:
   tags: druid,unauth
   metadata:
     max-request: 1
-
+  description: Druid Monitor Unauthorized Access detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/druid/index.html"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'Druid Stat Index</title>'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/druid/index.html'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - Druid Stat Index</title>
+  - type: status
+    status:
+    - 200

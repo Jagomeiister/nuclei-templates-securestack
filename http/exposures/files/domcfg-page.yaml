@@ -1,29 +1,26 @@
 id: domcfg-page
-
 info:
   name: Lotus Domino Configuration Page
   author: gevakun
   severity: low
   reference:
-    - https://twitter.com/Wh11teW0lf/status/1295594085445709824
+  - https://twitter.com/Wh11teW0lf/status/1295594085445709824
   tags: exposure,lotus,files
   metadata:
     max-request: 1
-
+  description: Lotus Domino Configuration Page detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/domcfg.nsf"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - Web Server Configuration
-          - Mapping
-          - Mappings
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/domcfg.nsf'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - Web Server Configuration
+    - Mapping
+    - Mappings
+    condition: and
+  - type: status
+    status:
+    - 200

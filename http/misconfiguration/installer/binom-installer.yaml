@@ -1,5 +1,4 @@
 id: binom-installer
-
 info:
   name: Binom Installer Exposure
   author: tess
@@ -9,23 +8,21 @@ info:
     verified: true
     shodan-query: title:"Install Binom"
   tags: misconfig,binom,install,exposure
-
+  description: Binom Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/'
-      - '{{BaseURL}}/?page=step_1'
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Install Binom</title>'
-          - 'System check'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/'
+  - '{{BaseURL}}/?page=step_1'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>Install Binom</title>
+    - System check
+    condition: and
+  - type: status
+    status:
+    - 200

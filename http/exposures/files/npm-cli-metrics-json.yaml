@@ -1,5 +1,4 @@
 id: npm-cli-metrics-json
-
 info:
   name: NPM Anonymous CLI Metrics Json
   author: DhiyaneshDK
@@ -9,22 +8,20 @@ info:
     verified: true
     shodan-query: html:"anonymous-cli-metrics.json"
   tags: npm,devops,exposure,files
-
+  description: NPM Anonymous CLI Metrics Json detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/anonymous-cli-metrics.json"
-      - "{{BaseURL}}/.npm/anonymous-cli-metrics.json"
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"metricId"'
-          - '"metrics"'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/anonymous-cli-metrics.json'
+  - '{{BaseURL}}/.npm/anonymous-cli-metrics.json'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - '"metricId"'
+    - '"metrics"'
+    condition: and
+  - type: status
+    status:
+    - 200

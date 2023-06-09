@@ -1,5 +1,4 @@
 id: atlassian-bamboo-build
-
 info:
   name: Atlassian Bamboo Build Dashboard
   author: DhiyaneshDK
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"Build Dashboard - Atlassian Bamboo"
   tags: misconfig,atlassian,bamboo
-
+  description: Atlassian Bamboo Build Dashboard detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/allPlans.action"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<th>Project</th>"
-          - "<th>Plan</th>"
-          - "<th>Build</th>"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/allPlans.action'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - <th>Project</th>
+    - <th>Plan</th>
+    - <th>Build</th>
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

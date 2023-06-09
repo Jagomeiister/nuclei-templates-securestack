@@ -1,5 +1,4 @@
 id: smarterstats-setup
-
 info:
   name: SmarterStats Setup Exposure
   author: tess
@@ -9,28 +8,25 @@ info:
     verified: true
     shodan-query: title:"Welcome to SmarterStats!"
   tags: misconfig,smarterstats,exposure
-
+  description: SmarterStats Setup Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/Admin/frmWelcome.aspx'
-
-    host-redirects: true
-    max-redirects: 2
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "SmarterStats - SmarterStats"
-          - "Create System Administrator"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/Admin/frmWelcome.aspx'
+  host-redirects: true
+  max-redirects: 2
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - SmarterStats - SmarterStats
+    - Create System Administrator
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

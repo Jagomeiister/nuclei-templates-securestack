@@ -1,16 +1,14 @@
 id: github-oauth-token
-
 info:
   name: Github OAuth Access Token
   author: tanq16
   severity: high
   tags: token,file,github
-
+  description: Github OAuth Access Token detected
 file:
-  - extensions:
-      - all
-
-    extractors:
-      - type: regex
-        regex:
-          - "gho_.{36}"
+- extensions:
+  - all
+  extractors:
+  - type: regex
+    regex:
+    - gho_.{36}

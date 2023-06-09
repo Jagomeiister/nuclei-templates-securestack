@@ -1,5 +1,4 @@
 id: vagrantfile-exposure
-
 info:
   name: Vagrantfile Exposure
   author: DhiyaneshDk
@@ -9,27 +8,24 @@ info:
     verified: true
     shodan-query: html:"Vagrantfile"
   tags: config,exposure,vagrant,oss,files
-
+  description: Vagrantfile Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/Vagrantfile"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "./vagrant/config/vagrant-local.yml"
-          - "./vagrant/config/vagrant-local.example.yml"
-
-      - type: word
-        part: header
-        words:
-          - "application/json"
-          - "text/html"
-        negative: true
-        condition: or
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/Vagrantfile'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - ./vagrant/config/vagrant-local.yml
+    - ./vagrant/config/vagrant-local.example.yml
+  - type: word
+    part: header
+    words:
+    - application/json
+    - text/html
+    negative: true
+    condition: or
+  - type: status
+    status:
+    - 200

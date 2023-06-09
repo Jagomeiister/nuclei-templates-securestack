@@ -1,5 +1,4 @@
 id: phpunit-result-cache-exposure
-
 info:
   name: PHPUnit Result Cache File Exposure
   author: DhiyaneshDk
@@ -7,20 +6,18 @@ info:
   metadata:
     max-request: 1
     verified: true
-    shodan-query: ".phpunit.result.cache"
+    shodan-query: .phpunit.result.cache
   tags: config,exposure,devops,files
-
+  description: PHPUnit Result Cache File Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/.phpunit.result.cache"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '"defects"'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/.phpunit.result.cache'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - '"defects"'
+  - type: status
+    status:
+    - 200

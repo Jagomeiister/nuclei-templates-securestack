@@ -1,5 +1,4 @@
 id: openmage-install
-
 info:
   name: OpenMage Installation Wizard
   author: DhiyaneshDk
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: title:"OpenMage Installation Wizard"
   tags: misconfig,openmage,install,exposure
-
+  description: OpenMage Installation Wizard detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/index.php/install/"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "OpenMage Installation Wizard"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/index.php/install/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - OpenMage Installation Wizard
+  - type: status
+    status:
+    - 200

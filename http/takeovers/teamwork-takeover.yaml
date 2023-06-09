@@ -1,5 +1,4 @@
 id: teamwork-takeover
-
 info:
   name: Teamwork Takeover Detection
   author: pdteam
@@ -7,18 +6,16 @@ info:
   tags: takeover,teamwork
   metadata:
     max-request: 1
-
+  description: Teamwork Takeover Detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        words:
-          - "Oops - We didn't find your site."
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: dsl
+    dsl:
+    - Host != ip
+  - type: word
+    words:
+    - Oops - We didn't find your site.

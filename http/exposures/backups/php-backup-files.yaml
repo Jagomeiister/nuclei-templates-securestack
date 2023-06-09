@@ -1,5 +1,4 @@
 id: php-backup-files
-
 info:
   name: PHP Source - Backup File Information Disclosure
   author: StreetOfHackerR007,pwnhxl
@@ -7,111 +6,105 @@ info:
   tags: exposure,backup,php,disclosure,fuzz
   metadata:
     max-request: 1025
-
+  description: PHP Source - Backup File Information Disclosure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}{{filepath}}{{bakext}}"
-
-    attack: clusterbomb
-    payloads:
-      filepath:
-        - /wp-config.php   # wordpress
-        - /site/default/settings.php   # drupal
-        - /installation/configuration.php   # joomla
-        - /app/etc/env.php   # magento
-        - /Application/Common/Conf/config.php   # thinkphp
-        - /environments/dev/common/config/main-local.php   # yii
-        - /environments/prod/common/config/main-local.php   # yii
-        - /common/config/main-local.php   # yii
-        - /system/config/default.php   # opencart
-        - /typo3conf/localconf.php   # typo3
-        - /config/config_global.php   # discuz
-        - /config/config_ucenter.php   # discuz
-        - /textpattern/config.php   # textpattern
-        - /data/common.inc.php   # dedecms
-        - /caches/configs/database.php   # phpcms
-        - /caches/configs/system.php   # phpcms
-        - /include/config.inc.php   # phpcms
-        - /phpsso_server/caches/configs/database.php   # phpcms
-        - /phpsso_server/caches/configs/system.php   # phpcms
-        - /zb_users/c_option.php   # zblog
-        - /e/class/config.php   # empirecms
-        - /e/config/config.php   # empirecms
-        - /data/sql_config.php   # phpwind
-        - /data/bbscache/config.php   # phpwind
-        - /db.php
-        - /conn.php
-        - /database.php
-        - /db_config.php
-        - /config.inc.php
-        - /data/config.php
-        - /config/config.php
-        - /index.php
-        - /default.php
-        - /main.php
-        - /settings.php
-        - /header.php
-        - /footer.php
-        - /login.php
-        - /404.php
-        - /wp-login.php
-        - /config.php
-
-      bakext:
-        - ".~"
-        - ".bk"
-        - ".bak"
-        - ".BAK"
-        - ".swp"
-        - ".swo"
-        - ".swn"
-        - ".tmp"
-        - ".save"
-        - ".old"
-        - ".new"
-        - ".orig"
-        - ".dist"
-        - ".txt"
-        - ".disabled"
-        - ".original"
-        - ".backup"
-        - "_bak"
-        - "_1.bak"
-        - "~"
-        - "!"
-        - ".0"
-        - ".1"
-        - ".2"
-        - ".3"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        part: body
-        words:
-          - "<?php"
-          - "<?="
-        condition: or
-
-      - type: word
-        part: body
-        words:
-          - "?>"
-          - "($"
-          - "$_GET["
-          - "$_POST["
-          - "$_REQUEST["
-          - "$_SERVER["
-        condition: or
-
-      - type: word
-        part: header
-        words:
-          - "text/plain"
-          - "bytes"
-        condition: or
+- method: GET
+  path:
+  - '{{BaseURL}}{{filepath}}{{bakext}}'
+  attack: clusterbomb
+  payloads:
+    filepath:
+    - /wp-config.php
+    - /site/default/settings.php
+    - /installation/configuration.php
+    - /app/etc/env.php
+    - /Application/Common/Conf/config.php
+    - /environments/dev/common/config/main-local.php
+    - /environments/prod/common/config/main-local.php
+    - /common/config/main-local.php
+    - /system/config/default.php
+    - /typo3conf/localconf.php
+    - /config/config_global.php
+    - /config/config_ucenter.php
+    - /textpattern/config.php
+    - /data/common.inc.php
+    - /caches/configs/database.php
+    - /caches/configs/system.php
+    - /include/config.inc.php
+    - /phpsso_server/caches/configs/database.php
+    - /phpsso_server/caches/configs/system.php
+    - /zb_users/c_option.php
+    - /e/class/config.php
+    - /e/config/config.php
+    - /data/sql_config.php
+    - /data/bbscache/config.php
+    - /db.php
+    - /conn.php
+    - /database.php
+    - /db_config.php
+    - /config.inc.php
+    - /data/config.php
+    - /config/config.php
+    - /index.php
+    - /default.php
+    - /main.php
+    - /settings.php
+    - /header.php
+    - /footer.php
+    - /login.php
+    - /404.php
+    - /wp-login.php
+    - /config.php
+    bakext:
+    - .~
+    - .bk
+    - .bak
+    - .BAK
+    - .swp
+    - .swo
+    - .swn
+    - .tmp
+    - .save
+    - .old
+    - .new
+    - .orig
+    - .dist
+    - .txt
+    - .disabled
+    - .original
+    - .backup
+    - _bak
+    - _1.bak
+    - '~'
+    - '!'
+    - '.0'
+    - '.1'
+    - '.2'
+    - '.3'
+  matchers-condition: and
+  matchers:
+  - type: status
+    status:
+    - 200
+  - type: word
+    part: body
+    words:
+    - <?php
+    - <?=
+    condition: or
+  - type: word
+    part: body
+    words:
+    - ?>
+    - ($
+    - $_GET[
+    - $_POST[
+    - $_REQUEST[
+    - $_SERVER[
+    condition: or
+  - type: word
+    part: header
+    words:
+    - text/plain
+    - bytes
+    condition: or

@@ -1,5 +1,4 @@
 id: google-api-private-key
-
 info:
   name: Google Api Private Key
   author: DhiyaneshDK
@@ -10,23 +9,21 @@ info:
     verified: true
     google-query: intitle:"index of" "google-api-private-key.json"
   tags: exposure,cloud,google,devops,files
-
+  description: Google Api Private Key detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/google-api-private-key.json"
-      - "{{BaseURL}}/app/config/pimcore/google-api-private-key.json"
-      - "{{BaseURL}}/pimcore/app/config/pimcore/google-api-private-key.json"
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'private_key_id'
-          - 'private_key'
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/google-api-private-key.json'
+  - '{{BaseURL}}/app/config/pimcore/google-api-private-key.json'
+  - '{{BaseURL}}/pimcore/app/config/pimcore/google-api-private-key.json'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - private_key_id
+    - private_key
+    condition: and
+  - type: status
+    status:
+    - 200

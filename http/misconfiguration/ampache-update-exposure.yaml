@@ -1,5 +1,4 @@
 id: ampache-update-exposure
-
 info:
   name: Ampache Update Page Exposure
   author: ritikchaddha
@@ -9,27 +8,24 @@ info:
     verified: true
     shodan-query: http.html:"Ampache Update"
   tags: misconfig,ampache,exposure
-
+  description: Ampache Update Page Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/update.php"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Ampache Update"
-        case-insensitive: true
-
-      - type: word
-        part: body
-        words:
-          - "No Update Needed"
-          - "No updates needed"
-        negative: true
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/update.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Ampache Update
+    case-insensitive: true
+  - type: word
+    part: body
+    words:
+    - No Update Needed
+    - No updates needed
+    negative: true
+  - type: status
+    status:
+    - 200

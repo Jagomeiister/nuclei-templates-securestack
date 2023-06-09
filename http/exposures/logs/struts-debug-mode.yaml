@@ -1,5 +1,4 @@
 id: struts-debug-mode
-
 info:
   name: Apache Struts setup in Debug-Mode
   author: pdteam
@@ -7,15 +6,14 @@ info:
   tags: logs,struts,apache,exposure,setup
   metadata:
     max-request: 1
-
+  description: Apache Struts setup in Debug-Mode detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers:
-      - type: word
-        words:
-          - "<debug>"
-          - "<struts.actionMapping>"
-        condition: and
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers:
+  - type: word
+    words:
+    - <debug>
+    - <struts.actionMapping>
+    condition: and

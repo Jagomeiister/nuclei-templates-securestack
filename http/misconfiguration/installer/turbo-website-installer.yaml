@@ -1,5 +1,4 @@
 id: turbo-website-installer
-
 info:
   name: Turbo Website Reviewer Installer Panel
   author: tess
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"Turbo Website Reviewer"
   tags: turbo,misconfig,exposure,install
-
+  description: Turbo Website Reviewer Installer Panel detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/admin/install/install.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Turbo Website Reviewer | Installer panel"
-          - ">Admin!</a> </p>"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/admin/install/install.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Turbo Website Reviewer | Installer panel
+    - '>Admin!</a> </p>'
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

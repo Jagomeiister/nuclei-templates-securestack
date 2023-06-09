@@ -1,5 +1,4 @@
 id: unauthorized-hp-printer
-
 info:
   name: Unauthorized HP Printer
   author: pussycat0x
@@ -7,20 +6,18 @@ info:
   tags: hp,iot,unauth
   metadata:
     max-request: 1
-
+  description: Unauthorized HP Printer detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/SSI/Auth/ip_snmp.htm"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "HP"
-          - "<h1>SNMP</h1>"
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/SSI/Auth/ip_snmp.htm'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - HP
+    - <h1>SNMP</h1>
+    condition: and
+  - type: status
+    status:
+    - 200

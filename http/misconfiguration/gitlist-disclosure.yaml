@@ -1,5 +1,4 @@
 id: gitlist-disclosure
-
 info:
   name: GitList Disclosure
   author: dhiyaneshDK
@@ -8,18 +7,16 @@ info:
     max-request: 1
     shodan-query: title:"GitList"
   tags: gitlist,misconfig
-
+  description: GitList Disclosure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'GitList</title>'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - GitList</title>
+  - type: status
+    status:
+    - 200

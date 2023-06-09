@@ -1,5 +1,4 @@
 id: sms-installer
-
 info:
   name: SMS Gateway Installation
   author: ritikchaddha
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: http.title:"SMS Gateway | Installation"
   tags: misconfig,sms,install
-
+  description: SMS Gateway Installation detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install/index.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'SMS Gateway | Installation'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install/index.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - SMS Gateway | Installation
+  - type: status
+    status:
+    - 200

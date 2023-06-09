@@ -1,5 +1,4 @@
 id: phpmemcached-admin-panel
-
 info:
   name: phpMemcachedAdmin Panel
   author: tess
@@ -9,25 +8,23 @@ info:
     verified: true
     shodan-query: title:"phpMemcachedAdmin"
   tags: phpmemcached,exposure,misconfig
-
+  description: phpMemcachedAdmin Panel detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "phpMemcachedAdmin"
-          - "Execute Commands on Servers"
-        condition: and
-        case-insensitive: true
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - "MemcachedAdmin ([0-9.]+)"
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - phpMemcachedAdmin
+    - Execute Commands on Servers
+    condition: and
+    case-insensitive: true
+  extractors:
+  - type: regex
+    part: body
+    group: 1
+    regex:
+    - MemcachedAdmin ([0-9.]+)

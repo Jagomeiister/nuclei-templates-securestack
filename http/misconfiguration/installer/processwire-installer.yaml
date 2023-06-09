@@ -1,5 +1,4 @@
 id: processwire-installer
-
 info:
   name: ProcessWire 3.x Installer Exposure
   author: pussycat0x
@@ -9,21 +8,19 @@ info:
     verified: true
     shodan-query: title:"ProcessWire 3.x Installer"
   tags: misconfig,processwire,install,exposure
-
+  description: ProcessWire 3.x Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-      - '{{BaseURL}}/install.php'
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>ProcessWire 3.x Installer'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/install.php'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>ProcessWire 3.x Installer
+  - type: status
+    status:
+    - 200

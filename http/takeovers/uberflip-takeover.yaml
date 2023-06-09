@@ -1,27 +1,24 @@
 id: uberflip-takeover
-
 info:
   name: Uberflip Takeover Detection
   author: pdteam
   severity: high
   reference:
-    - https://github.com/EdOverflow/can-i-take-over-xyz/issues/150
-    - https://hackerone.com/reports/863551
+  - https://github.com/EdOverflow/can-i-take-over-xyz/issues/150
+  - https://hackerone.com/reports/863551
   tags: takeover,uberflip,hackerone
   metadata:
     max-request: 1
-
+  description: Uberflip Takeover Detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        words:
-          - "Non-hub domain, The URL you've accessed does not provide a hub."
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: dsl
+    dsl:
+    - Host != ip
+  - type: word
+    words:
+    - Non-hub domain, The URL you've accessed does not provide a hub.

@@ -1,5 +1,4 @@
 id: apache-drill-exposure
-
 info:
   name: Apache Drill Exposure
   author: DhiyaneshDK
@@ -9,24 +8,21 @@ info:
     verified: true
     shodan-query: title:"Apache Drill"
   tags: misconfig,exposure,apache,drill
-
+  description: Apache Drill Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Apache Drill</title>'
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>Apache Drill</title>
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

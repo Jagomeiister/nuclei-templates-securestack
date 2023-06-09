@@ -1,5 +1,4 @@
 id: apcu-service
-
 info:
   name: APCu service information leakage
   author: koti2
@@ -7,18 +6,17 @@ info:
   tags: config,service,apcu
   metadata:
     max-request: 2
-
+  description: APCu service information leakage detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/apc/apc.php"
-      - "{{BaseURL}}/apc.php"
-
-    stop-at-first-match: true
-    matchers:
-      - type: word
-        words:
-          - "APCu Version Information"
-          - "General Cache Information"
-          - "Detailed Memory Usage and Fragmentation"
-        condition: or
+- method: GET
+  path:
+  - '{{BaseURL}}/apc/apc.php'
+  - '{{BaseURL}}/apc.php'
+  stop-at-first-match: true
+  matchers:
+  - type: word
+    words:
+    - APCu Version Information
+    - General Cache Information
+    - Detailed Memory Usage and Fragmentation
+    condition: or

@@ -1,5 +1,4 @@
 id: typo3-installer
-
 info:
   name: TYPO3 Installer
   author: DhiyaneshDk
@@ -9,24 +8,21 @@ info:
     verified: true
     shodan-query: title:"Installing TYPO3 CMS"
   tags: misconfig,typo3,install
-
+  description: TYPO3 Installer detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/typo3/install.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>Installing TYPO3 CMS</title>"
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/typo3/install.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>Installing TYPO3 CMS</title>
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

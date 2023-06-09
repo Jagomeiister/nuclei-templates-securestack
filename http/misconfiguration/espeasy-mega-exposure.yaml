@@ -1,5 +1,4 @@
 id: espeasy-mega-exposure
-
 info:
   name: ESPEasy Mega Panel Exposure
   author: ritikchaddha
@@ -9,22 +8,20 @@ info:
     verified: true
     shodan-query: http.html:"ESP Easy Mega"
   tags: misconfig,espeasy,exposure
-
+  description: ESPEasy Mega Panel Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "ESP Easy Mega:"
-          - "Config"
-          - "Tools"
-        condition: and
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - 'ESP Easy Mega:'
+    - Config
+    - Tools
+    condition: and
+  - type: status
+    status:
+    - 200

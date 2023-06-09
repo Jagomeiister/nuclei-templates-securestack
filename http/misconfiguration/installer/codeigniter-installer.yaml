@@ -1,5 +1,4 @@
 id: codeigniter-installer
-
 info:
   name: Codeigniter Application Installer Exposure
   author: ritikchaddha
@@ -9,19 +8,17 @@ info:
     verified: true
     shodan-query: http.title:"Codeigniter Application Installer"
   tags: misconfig,codeigniter,install,exposure
-
+  description: Codeigniter Application Installer Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Codeigniter Application Installer'
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Codeigniter Application Installer
+  - type: status
+    status:
+    - 200

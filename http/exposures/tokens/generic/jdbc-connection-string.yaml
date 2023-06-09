@@ -1,5 +1,4 @@
 id: jdbc-connection-string
-
 info:
   name: JDBC Connection String Disclosure
   author: Ice3man
@@ -7,14 +6,13 @@ info:
   tags: exposure,token
   metadata:
     max-request: 1
-
+  description: JDBC Connection String Disclosure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
-        regex:
-          - 'jdbc:[a-z:]+://[A-Za-z0-9\.\-_:;=/@?,&]+'
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  extractors:
+  - type: regex
+    part: body
+    regex:
+    - jdbc:[a-z:]+://[A-Za-z0-9\.\-_:;=/@?,&]+

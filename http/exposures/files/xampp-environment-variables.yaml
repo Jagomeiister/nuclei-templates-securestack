@@ -1,5 +1,4 @@
 id: xampp-environment-variables
-
 info:
   name: XAMPP Environment Variables Exposure
   author: melbadry9,DhiyaneshDK
@@ -7,26 +6,23 @@ info:
   tags: exposure,xampp,files
   metadata:
     max-request: 1
-
+  description: XAMPP Environment Variables Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/cgi-bin/printenv.pl"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<TITLE>Environment Variables</TITLE>"
-          - "Environment Variables:"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/cgi-bin/printenv.pl'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <TITLE>Environment Variables</TITLE>
+    - 'Environment Variables:'
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

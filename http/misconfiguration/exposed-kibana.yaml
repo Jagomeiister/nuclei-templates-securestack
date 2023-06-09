@@ -1,5 +1,4 @@
 id: exposed-kibana
-
 info:
   name: Exposed Kibana
   author: Shine
@@ -7,21 +6,20 @@ info:
   tags: kibana,unauth
   metadata:
     max-request: 2
-
+  description: Exposed Kibana detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-      - '{{BaseURL}}/app/kibana/'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'kibanaWelcomeView'
-          - 'cluster_uuid'
-          - 'kibanaWelcomeLogo'
-          - 'kibanaWelcomeTitle'
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/app/kibana/'
+  matchers-condition: and
+  matchers:
+  - type: word
+    words:
+    - kibanaWelcomeView
+    - cluster_uuid
+    - kibanaWelcomeLogo
+    - kibanaWelcomeTitle
+  - type: status
+    status:
+    - 200

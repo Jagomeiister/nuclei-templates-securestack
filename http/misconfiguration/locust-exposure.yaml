@@ -1,5 +1,4 @@
 id: locust-exposure
-
 info:
   name: Locust Exposure
   author: DhiyaneshDK
@@ -9,26 +8,23 @@ info:
     verified: true
     shodan-query: title:"Locust"
   tags: exposure,locust,misconfig
-
+  description: Locust Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - '<title>Locust</title>'
-
-      - type: word
-        part: body
-        words:
-          - 'locust.js'
-          - 'Charts</a>'
-        condition: or
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>Locust</title>
+  - type: word
+    part: body
+    words:
+    - locust.js
+    - Charts</a>
+    condition: or
+  - type: status
+    status:
+    - 200

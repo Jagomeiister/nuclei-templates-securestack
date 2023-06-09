@@ -1,5 +1,4 @@
 id: unauthenticated-airflow-instance
-
 info:
   name: Unauthenticated Airflow Instance
   author: dhiyaneshDK
@@ -8,21 +7,19 @@ info:
     max-request: 2
     shodan-query: title:"Airflow - DAGs"
   tags: apache,airflow,unauth
-
+  description: Unauthenticated Airflow Instance detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/admin/"
-
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "<title>Airflow - DAGs</title>"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/admin/'
+  stop-at-first-match: true
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - <title>Airflow - DAGs</title>
+  - type: status
+    status:
+    - 200

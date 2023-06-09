@@ -1,5 +1,4 @@
 id: moodle-installer
-
 info:
   name: Moodle Installation Exposure
   author: tess
@@ -9,24 +8,21 @@ info:
     verified: true
     shodan-query: title:"Installation Moodle"
   tags: misconfig,moodle,install,exposure
-
+  description: Moodle Installation Exposure detected
 http:
-  - method: GET
-    path:
-      - '{{BaseURL}}/install.php'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Installation - Moodle"
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}/install.php'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - Installation - Moodle
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

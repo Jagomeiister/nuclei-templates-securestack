@@ -1,5 +1,4 @@
 id: codis-dashboard
-
 info:
   name: Codis Dashboard Exposure
   author: tess
@@ -7,28 +6,25 @@ info:
   metadata:
     max-request: 1
     verified: true
-    shodan-query: title:"Codis • Dashboard"
+    shodan-query: "title:\"Codis \u2022 Dashboard\""
   tags: misconfig,exposure,codis
-
+  description: Codis Dashboard Exposure detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "Codis • Dashboard"
-          - "Sessions"
-        condition: and
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
-      - type: status
-        status:
-          - 200
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: word
+    part: body
+    words:
+    - "Codis \u2022 Dashboard"
+    - Sessions
+    condition: and
+  - type: word
+    part: header
+    words:
+    - text/html
+  - type: status
+    status:
+    - 200

@@ -1,28 +1,25 @@
 id: heroku-takeover
-
 info:
   name: Heroku Takeover Detection
   author: 0xPrial,pdteam
   severity: high
   reference:
-    - https://github.com/EdOverflow/can-i-take-over-xyz/issues/38
+  - https://github.com/EdOverflow/can-i-take-over-xyz/issues/38
   tags: takeover,heroku
   metadata:
     max-request: 1
-
+  description: Heroku Takeover Detection detected
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
-      - type: word
-        words:
-          - "herokucdn.com/error-pages/no-such-app.html"
-          - "<title>No such app</title>"
-        condition: and
+- method: GET
+  path:
+  - '{{BaseURL}}'
+  matchers-condition: and
+  matchers:
+  - type: dsl
+    dsl:
+    - Host != ip
+  - type: word
+    words:
+    - herokucdn.com/error-pages/no-such-app.html
+    - <title>No such app</title>
+    condition: and
