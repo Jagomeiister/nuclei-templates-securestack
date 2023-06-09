@@ -1,6 +1,7 @@
 id: gitbook-takeover
 info:
   name: gitbook takeover detection
+  description: gitbook takeover detection detected
   author: philippedelteil
   severity: high
   reference:
@@ -9,7 +10,6 @@ info:
   tags: takeover,gitbook,hackerone
   metadata:
     max-request: 1
-  description: gitbook takeover detection detected
 http:
 - method: GET
   path:
